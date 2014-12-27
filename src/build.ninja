@@ -1,0 +1,11 @@
+cxxflags = -Wextra -g
+cxx = clang++
+
+rule compile
+  command = $cxx $cppflags -c $in -o $out
+
+rule link
+  command = $cxx $in -o $out
+
+build main.o : compile main.cpp
+build main : link main.o
